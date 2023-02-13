@@ -1,0 +1,17 @@
+name: Workflow-1
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: input the name
+        required: true
+        default: tspinoy
+  schedule:
+    - cron: '*/15 * * * *'
+
+jobs:
+  echo-step:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "hello ${{inputs.name}}"
